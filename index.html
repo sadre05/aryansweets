@@ -28,6 +28,9 @@ nav{position:fixed;top:0;width:100%;z-index:9999;background:rgba(13,13,0,0.97);b
 .nav-links a:hover{color:var(--gold);}
 .nav-cta{background:var(--gold);color:var(--dark);border:none;padding:9px 20px;border-radius:5px;font-weight:700;font-size:0.82rem;cursor:pointer;letter-spacing:0.5px;text-transform:uppercase;transition:0.2s;}
 .nav-cta:hover{background:var(--gold-light);}
+/* COUPONS button in nav */
+.nav-coupon-btn{background:transparent;color:var(--gold);border:1.5px solid rgba(245,197,24,0.55);padding:9px 18px;border-radius:5px;font-weight:700;font-size:0.82rem;cursor:pointer;letter-spacing:0.5px;text-transform:uppercase;transition:0.2s;display:flex;align-items:center;gap:5px;}
+.nav-coupon-btn:hover{background:rgba(245,197,24,0.1);border-color:var(--gold);}
 .hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;}
 .hbg span{width:24px;height:2px;background:var(--gold);border-radius:2px;}
 .mob-menu{display:none;position:fixed;top:68px;left:0;width:100%;background:rgba(13,13,0,0.98);padding:1.5rem 5%;border-bottom:1px solid rgba(245,197,24,0.15);z-index:9998;}
@@ -47,6 +50,11 @@ nav{position:fixed;top:0;width:100%;z-index:9999;background:rgba(13,13,0,0.97);b
 .btn-gold:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(245,197,24,0.32);}
 .btn-out{background:transparent;color:var(--gold);border:1.5px solid rgba(245,197,24,0.5);padding:13px 30px;border-radius:5px;font-weight:500;font-size:0.9rem;cursor:pointer;transition:all 0.25s;text-transform:uppercase;}
 .btn-out:hover{background:rgba(245,197,24,0.07);transform:translateY(-2px);}
+/* Hero Coupons button */
+.btn-coupon{background:transparent;color:var(--gold);border:2px solid var(--gold);padding:13px 30px;border-radius:5px;font-weight:700;font-size:0.9rem;cursor:pointer;transition:all 0.25s;text-transform:uppercase;display:inline-flex;align-items:center;gap:7px;position:relative;overflow:hidden;}
+.btn-coupon::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(245,197,24,0.15),transparent);opacity:0;transition:0.25s;}
+.btn-coupon:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(245,197,24,0.28);}
+.btn-coupon:hover::before{opacity:1;}
 .hero-stats{display:flex;gap:2.5rem;margin-top:2.8rem;padding-top:1.8rem;border-top:1px solid rgba(245,197,24,0.13);flex-wrap:wrap;}
 .snum{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--gold);line-height:1;}
 .slbl{font-size:0.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:3px;}
@@ -162,6 +170,59 @@ section{padding:85px 5%;}
   line-height:1.4;
 }
 .delivery-note span{font-size:1.1rem;}
+
+/* ── COUPON SECTION IN CART ── */
+.coupon-section{
+  background:rgba(245,197,24,0.04);
+  border:1px solid rgba(245,197,24,0.18);
+  border-radius:8px;
+  padding:10px 12px;
+  margin-bottom:0.65rem;
+  animation:popIn 0.3s ease;
+}
+.coupon-section-label{
+  font-size:0.74rem;
+  color:var(--muted);
+  margin-bottom:7px;
+  display:flex;align-items:center;gap:5px;
+}
+.coupon-section-label strong{color:var(--gold);font-size:0.78rem;}
+.coupon-input-row{display:flex;gap:7px;}
+.coupon-input-row input{
+  flex:1;background:var(--dark3);
+  border:1px solid rgba(245,197,24,0.2);
+  color:var(--cream);padding:8px 11px;border-radius:6px;
+  font-family:'Outfit',sans-serif;font-size:0.84rem;outline:none;
+  text-transform:uppercase;letter-spacing:1px;
+  transition:border-color 0.25s;
+}
+.coupon-input-row input::placeholder{color:var(--muted);text-transform:none;letter-spacing:0;}
+.coupon-input-row input:focus{border-color:var(--gold);}
+.coupon-apply-btn{
+  background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+  color:var(--dark);border:none;padding:8px 14px;border-radius:6px;
+  font-weight:700;font-size:0.8rem;cursor:pointer;white-space:nowrap;
+  transition:all 0.22s;font-family:'Outfit',sans-serif;
+}
+.coupon-apply-btn:hover{opacity:0.88;}
+.coupon-remove-btn{
+  background:transparent;border:1px solid rgba(229,57,53,0.4);
+  color:#ef9a9a;padding:8px 10px;border-radius:6px;
+  font-size:0.8rem;cursor:pointer;white-space:nowrap;
+  transition:all 0.22s;font-family:'Outfit',sans-serif;
+}
+.coupon-remove-btn:hover{background:rgba(229,57,53,0.08);}
+.coupon-result{
+  border-radius:6px;padding:8px 11px;
+  font-size:0.79rem;line-height:1.5;
+  margin-top:7px;display:none;
+  animation:popIn 0.25s ease;
+}
+.coupon-result.show{display:block;}
+.coupon-result.valid{background:rgba(76,175,80,0.08);border:1px solid rgba(76,175,80,0.3);color:#81c784;}
+.coupon-result.invalid{background:rgba(229,57,53,0.08);border:1px solid rgba(229,57,53,0.3);color:#ef9a9a;}
+.coupon-discount-row{color:#81c784 !important;}
+.coupon-discount-row .val{color:#81c784 !important;font-weight:700 !important;}
 
 /* ── LOCATION CHECK WRAP ── */
 .loc-check-wrap{margin-bottom:0.9rem;}
@@ -323,7 +384,7 @@ section{padding:85px 5%;}
 .wr-rev{text-align:center;margin-top:2.5rem;padding-top:2.5rem;border-top:1px solid rgba(245,197,24,0.1);}
 .wr-rev p{color:var(--muted);margin-bottom:1rem;font-size:0.88rem;}
 
-#gallery{background:var(--dark2);}
+.gallery.html{background:var(--dark2);}
 .gal-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,190px);gap:0.9rem;margin-top:2.5rem;}
 .gcell{border-radius:10px;border:1px solid rgba(245,197,24,0.1);display:flex;align-items:center;justify-content:center;font-size:4.5rem;position:relative;cursor:pointer;transition:0.3s;background:radial-gradient(circle,rgba(245,197,24,0.09),var(--dark3));overflow:hidden;}
 .gcell:nth-child(1){grid-column:1/3;font-size:6rem;}
@@ -372,6 +433,147 @@ footer{background:var(--dark2);border-top:1px solid rgba(245,197,24,0.1);padding
 .smodal-close{background:var(--gold);color:var(--dark);border:none;padding:10px 26px;border-radius:6px;font-weight:700;cursor:pointer;font-size:0.88rem;transition:0.25s;}
 .smodal-close:hover{opacity:0.88;}
 
+/* ══════════════════════════════════════════════
+   COUPON MODAL — scratch-card style popup
+══════════════════════════════════════════════ */
+.coupon-modal{
+  position:fixed;inset:0;z-index:99997;
+  display:none;align-items:center;justify-content:center;
+}
+.coupon-modal.open{display:flex;}
+.coupon-modal-bg{
+  position:absolute;inset:0;
+  background:rgba(0,0,0,0.80);
+  backdrop-filter:blur(5px);
+}
+.coupon-modal-box{
+  position:relative;z-index:1;
+  background:var(--dark2);
+  border:2px solid rgba(245,197,24,0.38);
+  border-radius:20px;
+  padding:2.2rem 1.8rem 1.8rem;
+  text-align:center;
+  max-width:360px;width:92%;
+  animation:popIn 0.38s cubic-bezier(0.34,1.56,0.64,1);
+  overflow:hidden;
+}
+.coupon-modal-box::before{
+  content:'';
+  position:absolute;top:0;left:0;right:0;height:4px;
+  background:linear-gradient(90deg,var(--gold-dark),var(--gold),var(--gold-light),var(--gold));
+}
+.coupon-modal-sparkle{
+  font-size:3.2rem;margin-bottom:0.6rem;
+  animation:floatY 2.5s ease-in-out infinite;
+  display:inline-block;
+}
+.coupon-modal-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.85rem;font-weight:700;
+  color:var(--gold);margin-bottom:0.3rem;
+}
+.coupon-modal-sub{
+  font-size:0.84rem;color:var(--muted);
+  line-height:1.6;margin-bottom:1.4rem;
+}
+/* scratch area */
+.scratch-wrap{
+  position:relative;
+  width:100%;height:120px;
+  border-radius:12px;
+  margin-bottom:1.3rem;
+  overflow:hidden;
+  cursor:pointer;
+  user-select:none;
+  -webkit-user-select:none;
+}
+.scratch-reveal{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,var(--dark3),#2a2a00);
+  border:1px solid rgba(245,197,24,0.15);
+  border-radius:12px;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:6px;
+}
+.scratch-code{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.2rem;font-weight:700;
+  color:var(--gold);
+  letter-spacing:4px;
+  text-shadow:0 0 20px rgba(245,197,24,0.4);
+}
+.scratch-discount{
+  font-size:0.88rem;color:var(--cream2);font-weight:500;
+}
+.scratch-overlay{
+  position:absolute;inset:0;
+  border-radius:12px;
+  background:linear-gradient(135deg,#8B7536,#C9960C,#F5C518,#C9960C,#8B7536);
+  background-size:200% 200%;
+  animation:shimmer 2s ease infinite;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:6px;
+  transition:opacity 0.5s ease;
+}
+@keyframes shimmer{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.scratch-overlay .scratch-hint{
+  font-size:1.6rem;pointer-events:none;
+}
+.scratch-overlay .scratch-text{
+  font-size:0.78rem;font-weight:700;
+  color:var(--dark);text-transform:uppercase;
+  letter-spacing:1.5px;pointer-events:none;
+}
+.scratch-overlay.revealed{opacity:0;pointer-events:none;}
+/* copy row */
+.coupon-copy-row{
+  display:flex;align-items:center;gap:8px;
+  background:rgba(245,197,24,0.06);
+  border:1px dashed rgba(245,197,24,0.38);
+  border-radius:8px;padding:10px 12px;
+  margin-bottom:1rem;cursor:pointer;
+  transition:background 0.22s;
+}
+.coupon-copy-row:hover{background:rgba(245,197,24,0.1);}
+.coupon-copy-code{
+  flex:1;font-family:'Cormorant Garamond',serif;
+  font-size:1.35rem;font-weight:700;color:var(--gold);
+  letter-spacing:3px;text-align:left;
+}
+.coupon-copy-lbl{
+  font-size:0.72rem;color:var(--muted);text-transform:uppercase;
+  letter-spacing:1px;
+}
+.coupon-copy-icon{font-size:1.1rem;}
+/* savings badge */
+.coupon-savings-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(76,175,80,0.1);
+  border:1px solid rgba(76,175,80,0.3);
+  border-radius:50px;padding:5px 14px;
+  color:#81c784;font-size:0.8rem;font-weight:600;
+  margin-bottom:1.2rem;
+}
+.coupon-modal-actions{display:flex;gap:0.7rem;flex-direction:column;}
+.coupon-use-btn{
+  background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+  color:var(--dark);border:none;padding:12px;border-radius:8px;
+  font-weight:700;font-size:0.9rem;cursor:pointer;
+  transition:all 0.25s;text-transform:uppercase;letter-spacing:0.5px;
+}
+.coupon-use-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(245,197,24,0.35);}
+.coupon-dismiss-btn{
+  background:transparent;color:var(--muted);
+  border:1px solid rgba(245,197,24,0.15);
+  padding:10px;border-radius:8px;font-size:0.84rem;cursor:pointer;
+  transition:0.22s;font-family:'Outfit',sans-serif;
+}
+.coupon-dismiss-btn:hover{border-color:rgba(245,197,24,0.3);color:var(--cream);}
+/* already-revealed state (when reopening) */
+.scratch-wrap.done .scratch-overlay{opacity:0;pointer-events:none;}
+
 @keyframes floatY{0%,100%{transform:translateY(-50%)}50%{transform:translateY(calc(-50% - 18px))}}
 @keyframes popIn{from{opacity:0;transform:scale(0.82)}to{opacity:1;transform:scale(1)}}
 
@@ -384,7 +586,7 @@ footer{background:var(--dark2);border-top:1px solid rgba(245,197,24,0.1);padding
 }
 @media(max-width:640px){
   nav{padding:0 4%;}
-  .nav-links,.nav-cta{display:none;}
+  .nav-links,.nav-cta,.nav-coupon-btn{display:none;}
   .hbg{display:flex;}
   section{padding:65px 4%;}
   .tbl-grid{grid-template-columns:repeat(4,1fr);}
@@ -401,17 +603,19 @@ footer{background:var(--dark2);border-top:1px solid rgba(245,197,24,0.1);padding
   <ul class="nav-links">
     <li><a href="#home">Home</a></li>
     <li><a href="#menu">Menu</a></li><li><a href="#booking">Book Table</a></li>
-    <li><a href="#services">Services</a></li><li><a href="#gallery">Gallery</a></li>
+    <li><a href="#services">Services</a></li><li><a href="gallery.html">Gallery</a></li>
     <li><a href="#reviews">Reviews</a></li><li><a href="#contact">Contact</a></li>
   </ul>
+  <!-- <button class="nav-coupon-btn" onclick="openCouponModal()">🎟️ Coupons 4U</button> -->
   <button class="nav-cta" onclick="go('menu')">Order Now</button>
   <div class="hbg" onclick="toggleMob()"><span></span><span></span><span></span></div>
 </nav>
 <div class="mob-menu" id="mobMenu">
   <a href="#home" onclick="toggleMob()">Home</a><a href="#menu" onclick="toggleMob()">Menu</a>
   <a href="#booking" onclick="toggleMob()">Book Table</a><a href="#services" onclick="toggleMob()">Services</a>
-  <a href="#gallery" onclick="toggleMob()">Gallery</a><a href="#reviews" onclick="toggleMob()">Reviews</a>
+  <a href="gallery.html" onclick="toggleMob()">Gallery</a><a href="#reviews" onclick="toggleMob()">Reviews</a>
   <a href="#contact" onclick="toggleMob()">Contact</a>
+  <a href="#" onclick="toggleMob();openCouponModal();">🎟️ Coupons 4U</a>
 </div>
 
 <section id="home">
@@ -419,10 +623,11 @@ footer{background:var(--dark2);border-top:1px solid rgba(245,197,24,0.1);padding
   <div class="hero-content">
     <div class="hero-badge">✦ Authentic North & South Indian Cuisine</div>
     <h1 class="hero-title">Where Every Bite<br>Tells a <span class="acc">Story</span></h1>
-    <p class="hero-sub">From crispy Dosas to fluffy Idlis and crunchy Kachoris — taste the heart of North & South India. Fresh recipes, warm ambiance, 20 reserved tables waiting for you.</p>
+    <p class="hero-sub">खुशबुओं और स्वाद की अनोखी दुनिया में आपका स्वागत है — करारी डोसा, मुलायम इडली और कुरकुरी कचौरी के साथ हर कौर में भारत का असली जादू। लज़ीज़ केक और मिठाइयों के साथ आइए, अपने खास पलों को और भी खास बनाइए! 🙏</p>
     <div class="hero-btns">
       <button class="btn-gold" onclick="go('menu')">View Full Menu</button>
       <button class="btn-out" onclick="go('booking')">Book a Table</button>
+      <!-- <button class="btn-coupon" onclick="openCouponModal()">🎟️ Coupons 4U</button> -->
     </div>
     <div class="hero-stats">
       <div><div class="snum" id="statItems">31+</div><div class="slbl">Menu Items</div></div>
@@ -491,7 +696,7 @@ footer{background:var(--dark2);border-top:1px solid rgba(245,197,24,0.1);padding
     <div class="sec-tag">What We Offer</div>
     <h2 class="sec-title">Our <span class="acc">Services</span></h2>
     <div class="divider"></div>
-    <p class="sec-sub">Everything you need for an amazing South Indian dining experience.</p>
+    <p class="sec-sub">Everything you need for an amazing North & South Indian dining experience.</p>
   </div>
   <div class="svc-grid">
     <div class="svc-card"><div class="svc-icon">🍽️</div><h3>Dine In</h3><p>20 beautifully arranged tables. Warm ambiance for families, friends & celebrations.</p></div>
@@ -502,24 +707,6 @@ footer{background:var(--dark2);border-top:1px solid rgba(245,197,24,0.1);padding
     <div class="svc-card"><div class="svc-icon">🌿</div><h3>Pure Veg</h3><p>100% vegetarian kitchen with fresh, organic ingredients sourced locally every day.</p></div>
   </div>
 </section>
-
-<section id="gallery">
-  <div class="center">
-    <div class="sec-tag">Our Kitchen & Ambiance</div>
-    <h2 class="sec-title">Photo <span class="acc">Gallery</span></h2>
-    <div class="divider"></div>
-    <p class="sec-sub">A glimpse into our world of flavours, freshness and warm hospitality.</p>
-  </div>
-  <div class="gal-grid">
-    <div class="gcell">🥘<div class="gcell-lbl">Signature Sambar</div></div>
-    <div class="gcell">🍳<div class="gcell-lbl">Morning Kitchen</div></div>
-    <div class="gcell">🌾<div class="gcell-lbl">Fresh Ingredients</div></div>
-    <div class="gcell">☕<div class="gcell-lbl">Filter Coffee</div></div>
-    <div class="gcell">🫕<div class="gcell-lbl">Chef's Special</div></div>
-    <div class="gcell">🏮<div class="gcell-lbl">Our Ambiance</div></div>
-  </div>
-</section>
-
 <section id="reviews">
   <div class="center">
     <div class="sec-tag">Customer Love</div>
@@ -529,7 +716,7 @@ footer{background:var(--dark2);border-top:1px solid rgba(245,197,24,0.1);padding
       <div class="big-r">4.8</div>
       <div><div class="stars">★★★★★</div><div style="font-size:0.85rem;color:var(--cream2);margin-top:4px">Based on Google Reviews</div><div style="font-size:0.75rem;color:var(--muted);margin-top:3px">1,240+ happy customers</div></div>
     </div>
-    <a href="https://maps.app.goo.gl/L8kiEehHnQFTEnKZ9" target="_blank" class="g-btn">⭐ Rate Us on Google</a>
+    <a href="https://www.google.com/maps" target="_blank" class="g-btn">⭐ Rate Us on Google</a>
   </div>
   <div class="rev-grid">
     <div class="rev-card"><div class="rev-head"><div class="rev-av">R</div><div><div class="rev-name">Rajesh Kumar</div><div class="rev-date">2 weeks ago</div></div></div><div class="rev-stars">★★★★★</div><div class="rev-txt">Best Masala Dosa I've had in years! The sambar is out of this world. Will definitely come back!</div></div>
@@ -539,66 +726,55 @@ footer{background:var(--dark2);border-top:1px solid rgba(245,197,24,0.1);padding
     <div class="rev-card"><div class="rev-head"><div class="rev-av">M</div><div><div class="rev-name">Mohan Das</div><div class="rev-date">2 months ago</div></div></div><div class="rev-stars">★★★★★</div><div class="rev-txt">Booked table 8 for my anniversary. Food was fresh and the ambiance was perfect!</div></div>
     <div class="rev-card"><div class="rev-head"><div class="rev-av">D</div><div><div class="rev-name">Deepa Krishnan</div><div class="rev-date">1 week ago</div></div></div><div class="rev-stars">★★★★★</div><div class="rev-txt">Bisi Bele Bath here is the best in the city. The online table booking was super easy!</div></div>
   </div>
-  <div class="wr-rev"><p>Had a great experience? Help others discover us!</p><a href="https://maps.app.goo.gl/L8kiEehHnQFTEnKZ9" target="_blank" class="g-btn">✍ Write a Google Review</a></div>
+  <div class="wr-rev"><p>Had a great experience? Help others discover us!</p><a href="https://www.google.com/maps" target="_blank" class="g-btn">✍ Write a Google Review</a></div>
 </section>
-
 <section id="contact">
   <div class="sec-tag">Get In Touch</div>
   <h2 class="sec-title">Find & <span class="acc">Contact</span> Us</h2>
   <div class="divider"></div>
-  <div class="contact-grid">
+  <div class="contact-grid"> 
     <div>
       <div class="con-item"><div class="con-icon">📍</div><div><div class="con-lbl">Address</div><div class="con-val">SH 88, Baheri Bazar, Baheri,<br>Darbhanga, Bihar — 847105</div></div></div>
-      <div class="con-item"><div class="con-icon">📞</div><div><div class="con-lbl">Phone</div><div class="con-val"><a href="tel:+917992329377">+91 9570890652</a></div></div></div>
-      <div class="con-item"><div class="con-icon">📧</div><div><div class="con-lbl">Email</div><div class="con-val"><a href="/cdn-cgi/l/email-protection#523a373e3e3d1233202b333c2125373726217c3b3c"><span class="__cf_email__" data-cfemail="49212c25252609283b3028273a3e2c2c3d3a672027">[email&#160;protected]</span></a></div></div></div>
-      <div class="con-item"><div class="con-icon">🕐</div><div><div class="con-lbl">Opening Hours</div><div class="con-val"><table class="hours-tbl"><tr><td>Mon – Fri</td><td> 7:00 AM – 10:00 PM</td></tr><tr><td>Saturday</td><td>7:00 AM – 11:00 PM</td></tr><tr><td>Sunday</td><td>7:00 AM – 9:00 PM</td></tr></table></div></div></div>
-      <div class="map-box">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3597.0!2d86.0480939!3d25.9464852!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ede9fad16789b7:0x12879d8abcdd2fdf!2sShree%20Aryan%20Sweet%20Home!5e0!3m2!1sen!2sin!4v1699999999999!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
-      <a href="https://www.google.com/maps/place/Shree+Aryan+Sweet+Home/@25.9464852,86.045519,17z" target="_blank" class="nav-map-btn">📍 Open in Google Maps</a>
+      <div class="con-item"><div class="con-icon">📞</div><div><div class="con-lbl">Phone_1</div><div class="con-val"><a href="tel:+919570890652">+91 9570890652</a></div></div></div>
+      <div class="con-item"><div class="con-icon">📞</div><div><div class="con-lbl">Phone_2</div><div class="con-val"><a href="tel:+917992329377">+91 79923 29377</a></div></div></div>
+      <div class="con-item"><div class="con-icon">📧</div><div><div class="con-lbl">Email</div><div class="con-val"><a href="mailto:aryansweets@gmail.com">aryansweets@gmail.com</a></div></div></div>
+      <div class="con-item"><div class="con-icon">🕐</div><div><div class="con-lbl">Opening Hours</div><div class="con-val"><table class="hours-tbl"><tr><td>Mon – Fri</td><td>7:00 AM – 10:00 PM</td></tr><tr><td>Saturday</td><td>7:00 AM – 11:00 PM</td></tr><tr><td>Sunday</td><td>7:00 AM – 9:00 PM</td></tr></table></div></div></div>
     </div>
-    <div>
-      <p style="color:var(--muted);margin-bottom:1.2rem;font-size:0.9rem">Send us a message — we reply within hours!</p>
-      <div class="cf">
-        <div class="fg"><label>Your Name</label><input type="text" class="fc" id="cName" placeholder="Full name"></div>
-        <div class="fg"><label>Phone / Email</label><input type="text" class="fc" id="cContact" placeholder="Phone or email"></div>
-        <div class="fg"><label>Subject</label><select class="fc" id="cSubject"><option>General Inquiry</option><option>Table Booking Help</option><option>Catering / Party</option><option>Feedback</option><option>Other</option></select></div>
-        <div class="fg"><label>Message</label><textarea class="fc" id="cMsg" rows="5" placeholder="How can we help you?" style="resize:vertical"></textarea></div>
-        <button class="place-btn-gold" onclick="sendMsg()">📨 Send Message</button>
-      </div>
+    <div class="map-box">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3597.0!2d86.0480939!3d25.9464852!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ede9fad16789b7:0x12879d8abcdd2fdf!2sShree%20Aryan%20Sweet%20Home!5e0!3m2!1sen!2sin!4v1699999999999!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </div>
-</section>
+</section>       
 
 <footer>
   <div class="foot-grid">
     <div>
       <div class="foot-brand">श्री आर्यन <span>&</span> धनराज स्वीट्स</div>
-      <p class="foot-desc">Authentic South Indian flavours served with love. Every meal is a celebration of tradition, taste and togetherness.</p>
+      <p class="foot-desc">Authentic North & South Indian flavours served with love. Every meal is a celebration of tradition, taste and togetherness.</p>
     </div>
     <div>
       <div class="foot-ttl">Quick Links</div>
       <ul class="foot-links">
         <li><a href="#home">Home</a></li><li><a href="#menu">Our Menu</a></li>
         <li><a href="#booking">Book a Table</a></li><li><a href="#services">Services</a></li>
-        <li><a href="#gallery">Gallery</a></li><li><a href="#reviews">Reviews</a></li>
+        <li><a href="gallery.html">Gallery</a></li><li><a href="#reviews">Reviews</a></li>
         <li><a href="#contact">Contact Us</a></li>
       </ul>
     </div>
     <div>
       <div class="foot-ttl">Opening Hours</div>
-      <table class="hours-tbl"><tr><td>Mon – Fri</td><td>7AM – 10PM</td></tr><tr><td>Saturday</td><td>7AM – 10PM</td></tr><tr><td>Sunday</td><td>7AM – 10PM</td></tr></table>
+      <table class="hours-tbl"><tr><td>Mon – Fri</td><td>7AM – 10PM</td></tr><tr><td>Saturday</td><td>7AM – 11PM</td></tr><tr><td>Sunday</td><td>7AM – 9PM</td></tr></table>
       <br>
-      <div class="foot-ttl">Follow Us</div>
+      <!-- <div class="foot-ttl">Follow Us</div>
       <div style="display:flex;gap:0.8rem;margin-top:4px">
         <a href="#" style="color:var(--gold);font-size:1.4rem;text-decoration:none">📘</a>
         <a href="#" style="color:var(--gold);font-size:1.4rem;text-decoration:none">📸</a>
         <a href="#" style="color:var(--gold);font-size:1.4rem;text-decoration:none">💬</a>
       </div>
-    </div>
+    </div> -->
   </div>
   <div class="foot-bot">
-    <span>© 2025 श्री आर्यन & धनराज स्वीट्स. All rights reserved.</span>
+    <span>© 2026 श्री आर्यन & धनराज स्वीट्स. All rights reserved.</span>
   </div>
 </footer>
 
@@ -619,6 +795,18 @@ footer{background:var(--dark2);border-top:1px solid rgba(245,197,24,0.1);padding
       <div class="delivery-note" id="deliveryNote" style="display:none">
         <span>🚚</span>
         <div id="deliveryNoteText">Free delivery on orders above ₹200!</div>
+      </div>
+
+      <!-- ── COUPON CODE SECTION — shown when cart has items ── -->
+      <div class="coupon-section" id="couponSection" style="display:none">
+        <div class="coupon-section-label">
+          🎟️ <strong>Have a Coupon?</strong> Enter your code below
+        </div>
+        <div class="coupon-input-row" id="couponInputRow">
+          <input type="text" id="couponCodeInput" placeholder="e.g. ARYAN7" maxlength="10">
+          <button class="coupon-apply-btn" onclick="applyCoupon()">Apply</button>
+        </div>
+        <div class="coupon-result" id="couponResult"></div>
       </div>
 
       <!-- ── LOCATION CHECK WRAP — only shown when cart has items ── -->
@@ -663,6 +851,49 @@ footer{background:var(--dark2);border-top:1px solid rgba(245,197,24,0.1);padding
   </div>
 </div>
 
+<!-- ══════════════════════════════════════════════
+     COUPON MODAL
+══════════════════════════════════════════════ -->
+<div class="coupon-modal" id="couponModal">
+  <div class="coupon-modal-bg" onclick="closeCouponModal()"></div>
+  <div class="coupon-modal-box">
+    <div class="coupon-modal-sparkle">🎟️</div>
+    <div class="coupon-modal-title">Your Lucky Coupon!</div>
+    <p class="coupon-modal-sub">Scratch below to reveal your exclusive discount — valid on your next order!</p>
+
+    <!-- Scratch card -->
+    <div class="scratch-wrap" id="scratchWrap" onclick="revealScratch()">
+      <div class="scratch-reveal">
+        <div class="scratch-code" id="scratchCode">——</div>
+        <div class="scratch-discount" id="scratchDiscount">Tap to reveal!</div>
+      </div>
+      <div class="scratch-overlay" id="scratchOverlay">
+        <div class="scratch-hint">👆</div>
+        <div class="scratch-text">Tap to Scratch!</div>
+      </div>
+    </div>
+
+    <!-- Savings badge (hidden until revealed) -->
+    <div class="coupon-savings-badge" id="couponSavingsBadge" style="display:none">
+      🎉 Save <span id="savingsAmt">₹0</span> on your order!
+    </div>
+
+    <!-- Copy row (hidden until revealed) -->
+    <div class="coupon-copy-row" id="couponCopyRow" style="display:none" onclick="copyCouponCode()">
+      <div>
+        <div class="coupon-copy-lbl">Your Coupon Code (tap to copy)</div>
+        <div class="coupon-copy-code" id="couponCopyCode">——</div>
+      </div>
+      <div class="coupon-copy-icon">📋</div>
+    </div>
+
+    <div class="coupon-modal-actions">
+      <button class="coupon-use-btn" id="couponUseBtn" style="display:none" onclick="useCouponNow()">🛒 Use This Coupon Now</button>
+      <button class="coupon-dismiss-btn" onclick="closeCouponModal()">Maybe Later</button>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
 <div class="smodal" id="smodal">
   <div class="smodal-bg" onclick="closeModal()"></div>
@@ -674,7 +905,7 @@ footer{background:var(--dark2);border-top:1px solid rgba(245,197,24,0.1);padding
   </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 /* ═══════════════════════════════════════════
    CONFIG
 ═══════════════════════════════════════════ */
@@ -686,90 +917,202 @@ var SHOP_LAT = 25.9464852;
 var SHOP_LNG = 86.0480939;
 
 /* ═══════════════════════════════════════════
-   MENU DATA
+   COUPON SYSTEM
+   ─────────────────────────────────────────
+   Logic: generate a random coupon code mapped
+   to a random discount between ₹1–₹20.
+   Codes are stored in sessionStorage so the
+   same coupon persists for the session.
+   The coupon pool holds a master list.
+   When the modal opens, we assign/retrieve
+   ONE coupon per session for the visitor.
 ═══════════════════════════════════════════ */
-var MENU = [
 
-// Breakfast
-  {id:'d1',  name:'Chole Bhature',       emoji:'🥟', cat:'breakfast', price:50,  unit:'Per plate (2 pcs)',  desc:'Fluffy bhature with spiced chole. A hearty North-Indian favourite.',            img:'images/breakfast/Chole_Bhature.jpg'},
-  {id:'d2',  name:'Dosa',                emoji:'🍚', cat:'breakfast', price:50,  unit:'Per plate',          desc:'Classic thin crispy rice & lentil crepe with sambar & chutney.',                img:'images/breakfast/dosa.webp'},
-  {id:'d3',  name:'Paper Dosa',          emoji:'🥞', cat:'breakfast', price:50,  unit:'Per plate',          desc:'Extra-thin, extra-crispy version of the classic dosa.',                         img:'images/breakfast/Paper_dosa.webp'},
-  {id:'d4',  name:'Masala Dosa',         emoji:'🫔', cat:'breakfast', price:60,  unit:'Per plate',          desc:'Crispy golden dosa stuffed with spiced potato masala filling.',                  img:'images/breakfast/Masala_dosa.webp'},
-  {id:'d5',  name:'Paneer Masala Dosa',  emoji:'🧈', cat:'breakfast', price:80,  unit:'Per plate',          desc:'Dosa stuffed with rich paneer masala. A deluxe classic.',                       img:'images/breakfast/Paneer_Masala.webp'},
-  {id:'d6',  name:'Manchurian',          emoji:'🍪', cat:'breakfast', price:30,  unit:'Per bowl',           desc:'Crispy veggie balls tossed in tangy Manchurian sauce.',                         img:'images/breakfast/Manchurian.jpg'},
-  {id:'d7',  name:'Paneer Manchurian',   emoji:'🍩', cat:'breakfast', price:50,  unit:'Per bowl',           desc:'Soft paneer cubes in spicy Indo-Chinese Manchurian gravy.',                     img:'images/breakfast/Paneer_Manchurian.webp'},
-  {id:'d8',  name:'Paneer Chilli',       emoji:'🍕', cat:'breakfast', price:80,  unit:'Per bowl',           desc:'Crispy paneer tossed with bell peppers in a chilli sauce.',                     img:'images/breakfast/Paneer_Chilli.jpg'},
-  {id:'d9',  name:'Pizza',               emoji:'🍕', cat:'breakfast', price:50,  unit:'Per slice',          desc:'Topped with onion, tomato, green chilli & coriander.',                          img:'images/breakfast/pizza.jpg'},
-  {id:'d10', name:'Paneer Pizza',        emoji:'🍕', cat:'breakfast', price:80,  unit:'Per slice',          desc:'Loaded with fresh paneer, veggies & mozzarella.',                               img:'images/breakfast/paneer_pizza.webp'},
- 
-// Sweets
-
-  {id:'s1',  name:'Kaju Barfi',          emoji:'🍮', cat:'sweets',    price:1200, unit:'Per kg',           desc:'Premium cashew fudge with silver leaf. Melt-in-mouth classic.',                  img:'images/sweets/kaju-katli.png'},
-  {id:'s2',  name:'Ghee Laddu',          emoji:'🟡', cat:'sweets',    price:500,  unit:'Per kg', desc:'Traditional besan laddus made with pure desi ghee and cardamom.',                img:'images/sweets/ghee_laddu.jpeg'},
-  {id:'s3',  name:'Gulab Jamun',         emoji:'🫙', cat:'sweets',    price:300,  unit:'Per kg',  desc:'Soft khoya balls soaked in rose-cardamom sugar syrup. Served warm.',             img:'images/sweets/Gulab_Jamun.jpg'},
-  {id:'s4',  name:'Motichoor Laddu',     emoji:'🟠', cat:'sweets',    price:200,  unit:'Per kg',           desc:'Tiny boondi laddus bound with saffron syrup and dry fruits.',                    img:'images/sweets/motichoor_ladoo.jpg'},
-  {id:'s5',  name:'Sukha Rasgulla',      emoji:'⚪', cat:'sweets',    price:300,  unit:'Per kg',  desc:'Spongy chhena balls soaked in light sugar syrup. Bengali special.',               img:'images/sweets/sukha_rasgulla.jpeg'},
-  {id:'s6',  name:'Kalakand',            emoji:'🍮', cat:'sweets',    price:500, unit:'Per kg',           desc:'Premium cashew fudge with silver leaf. Melt-in-mouth classic.',                  img:'images/sweets/kalakand.jpeg'},
-  {id:'s7',  name:'Cream Chamcham',      emoji:'🍮', cat:'sweets',    price:400, unit:'Per kg',           desc:'Premium cashew fudge with silver leaf. Melt-in-mouth classic.',                  img:'images/sweets/creem_chamcham.png'},
-  {id:'s8',  name:'Cream Chop',          emoji:'🍮', cat:'sweets',    price:50, unit:'Per piece',           desc:'Premium cashew fudge with silver leaf. Melt-in-mouth classic.',                  img:'images/sweets/creem_chop.jpg'},
-  {id:'s9',  name:'Sponge',              emoji:'🍮', cat:'sweets',    price:300, unit:'Per kg',           desc:'Premium cashew fudge with silver leaf. Melt-in-mouth classic.',                  img:'images/sweets/spange.webp'},
-  {id:'s10',  name:'Chamcham',           emoji:'🍮', cat:'sweets',    price:400, unit:'Per kg',           desc:'Premium cashew fudge with silver leaf. Melt-in-mouth classic.',                  img:'images/sweets/chamcham.jpeg'},
-  {id:'s11',  name:'Peda',               emoji:'🍮', cat:'sweets',    price:500, unit:'Per kg',           desc:'Premium cashew fudge with silver leaf. Melt-in-mouth classic.',                  img:'images/sweets/peda.jpeg'},
-  {id:'s12',  name:'Khoya Barfi',        emoji:'🍮', cat:'sweets',    price:500, unit:'Per kg',           desc:'Premium cashew fudge with silver leaf. Melt-in-mouth classic.',                  img:'images/sweets/khoya_slice.jpeg'},
-  {id:'s13',  name:'Milk Cake',          emoji:'🍮', cat:'sweets',    price:500, unit:'Per kg',           desc:'Premium cashew fudge with silver leaf. Melt-in-mouth classic.',                  img:'images/sweets/milk.jpeg'},
-  {id:'s14',  name:'Chocolate Barfi',    emoji:'🍮', cat:'sweets',    price:500, unit:'Per kg',           desc:'Premium cashew fudge with silver leaf. Melt-in-mouth classic.',                  img:'images/sweets/Chocolate_barfi.webp'},
-  {id:'s15',  name:'Khoya Roll',         emoji:'🍮', cat:'sweets',    price:500, unit:'Per kg',           desc:'Premium cashew fudge with silver leaf. Melt-in-mouth classic.',                  img:'images/sweets/khoya_roll.jpg'},
-  {id:'s16',  name:'Khoya Slice',        emoji:'🍮', cat:'sweets',    price:600, unit:'Per kg',           desc:'Premium cashew fudge with silver leaf. Melt-in-mouth classic.',                  img:'images/sweets/khoya_slice.jpeg'},
-  {id:'s17',  name:'Coconut Dry Fruit Laddu',          emoji:'🍮', cat:'sweets',    price:800, unit:'Per kg',           desc:'Premium cashew fudge with silver leaf. Melt-in-mouth classic.',                  img:'images/sweets/coconut_dry_fruit.jpg'},
-  {id:'s18',  name:'Dry Fruit Laddu',          emoji:'🍮', cat:'sweets',    price:1200, unit:'Per kg',           desc:'Premium cashew fudge with silver leaf. Melt-in-mouth classic.',                  img:'images/sweets/Dry_fruits.jpg'},
-  {id:'s19',  name:'Kaju Pista Roll',          emoji:'🍮', cat:'sweets',    price:2000, unit:'Per kg',           desc:'Premium cashew fudge with silver leaf. Melt-in-mouth classic.',                  img:'images/sweets/kaju_pista_roll.jpg'},
-  {id:'s20',  name:'Raskadam',                 emoji:'🍮', cat:'sweets',    price:500, unit:'Per kg',           desc:'Premium cashew fudge with silver leaf. Melt-in-mouth classic.',                  img:'images/sweets/raskadam.jpeg'},
-  {id:'s21',  name:'Kaju Pan',                 emoji:'🍮', cat:'sweets',    price:1200, unit:'Per kg',           desc:'Premium cashew fudge with silver leaf. Melt-in-mouth classic.',                  img:'images/sweets/kaju_pan.jpg'},
-  {id:'s22',  name:'Gee Besan Laddu',          emoji:'🍮', cat:'sweets',    price:500, unit:'Per kg',           desc:'Premium cashew fudge with silver leaf. Melt-in-mouth classic.',                  img:'images/sweets/ghee_besan_ladoo.jpeg'},
-  {id:'s23',  name:'Gond Laddu',               emoji:'🍮', cat:'sweets',    price:6, unit:'Per piece',           desc:'Premium cashew fudge with silver leaf. Melt-in-mouth classic.',                  img:'images/sweets/Gond_laddu.jpg'},
-  {id:'s24',  name:'Pinni Laddu',              emoji:'🍮', cat:'sweets',    price:6, unit:'Per piece',           desc:'Premium cashew fudge with silver leaf. Melt-in-mouth classic.',                  img:'images/sweets/pinni-laddo.png'},
-  {id:'s25',  name:'Moti Pak',                 emoji:'🍮', cat:'sweets',    price:600, unit:'Per kg',           desc:'Premium cashew fudge with silver leaf. Melt-in-mouth classic.',                  img:'images/sweets/moti_pak.jpg'},
- 
-
-
-// Cake
-
-  {id:'c1',  name:'Chocolate Cake',      emoji:'🎂', cat:'cake',      price:300, unit:'Per pound',           desc:'Rich dark chocolate layer cake with ganache frosting.',                          img:'images/cake/Chocolate_Cake.webp'},
-  {id:'c2',  name:'Vanilla Cream Cake',  emoji:'🍰', cat:'cake',      price:320, unit:'Per pound',           desc:'Light vanilla sponge with fresh cream and fruit topping.',                       img:'images/cake/Vanilla_Cake.jpeg'},
-  {id:'c3',  name:'Pineapple Cake',      emoji:'🍍', cat:'cake',      price:350, unit:'Per pound',           desc:'Classic pineapple pastry with fresh cream and pineapple chunks.',                 img:'images/cake/Pineapple_Cake.webp'},
-  {id:'c4',  name:'Black Forest Cake',   emoji:'🍒', cat:'cake',      price:350, unit:'Per pound',           desc:'German chocolate cake with cherries, cream and chocolate shavings.',              img:'images/cake/Black_Forest_Cake.webp'},
-  {id:'c5',  name:'Butterscotch Cake',   emoji:'🧁', cat:'cake',      price:420, unit:'Per pound',           desc:"Smooth butterscotch cream cake with crunchy praline. Kids' favourite.",           img:'images/cake/Butterscotch_cake.webp'},
-  {id:'c6',  name:'White Forest Cake',   emoji:'🧁', cat:'cake',      price:400, unit:'Per pound',           desc:"Smooth butterscotch cream cake with crunchy praline. Kids' favourite.",           img:'images/cake/White_Forest_cacke.webp'},
-  {id:'c7',  name:'Strawberry Cake',     emoji:'🍒', cat:'cake',      price:4300, unit:'Per pound',           desc:"Smooth butterscotch cream cake with crunchy praline. Kids' favourite.",           img:'images/cake/Strawberry_Cake.webp'},
-  {id:'c8',  name:'Choco Chips Cake',    emoji:'🍒', cat:'cake',      price:400, unit:'Per pound',           desc:'Moist red velvet cake with cream cheese frosting.',                           img:'images/cake/Choco_Chips_cake.webp'},
-  {id:'c9',  name:'Fruits Cake',         emoji:'🍒', cat:'cake',      price:450, unit:'Per pound',           desc:'Moist red velvet cake with cream cheese frosting.',                           img:'images/cake/Fruit_cake.jpg'},
-  {id:'c10', name:'Truffle Cake',        emoji:'🍒', cat:'cake',      price:500, unit:'Per pound',           desc:'Moist red velvet cake with cream cheese frosting.',                           img:'images/cake/Truffle_cake.webp'},
-  {id:'c11',  name:'Khoya Cake',         emoji:'🍒', cat:'cake',      price:700, unit:'Per pound',           desc:'Moist red velvet cake with cream cheese frosting.',                           img:'images/cake/Khoya_cake.webp'},
-  {id:'c12',  name:'Pastry Cake',        emoji:'🍒', cat:'cake',      price:50, unit:'Per piece',           desc:'Moist red velvet cake with cream cheese frosting.',                           img:'images/cake/Pastry.webp'},
-  {id:'c13',  name:'Mofinse Cake',       emoji:'🍒', cat:'cake',      price:50, unit:'Per pound',           desc:'Moist red velvet cake with cream cheese frosting.',                           img:'images/cake/Mopinse_cake.webp'},
-
-  
-// Snacks
-
-  {id:'n1',  name:'Samosa',              emoji:'🔺', cat:'snacks',    price:8,  unit:'Per piece',          desc:'Crispy pastry filled with spiced potatoes and peas. With green chutney.',        img:'images/snacks/samosa.jpeg'},
-  {id:'n2',  name:'Kachori',             emoji:'🥙', cat:'snacks',    price:8,  unit:'Per piece',          desc:'Crispy fried pastry stuffed with spiced lentil filling.',                        img:'images/snacks/kachori.webp'},
-  {id:'n3',  name:'Litti',               emoji:'🌶', cat:'snacks',    price:8,  unit:'Per piece',                 desc:'Green chillies dipped in spiced gram flour batter, deep fried golden.',          img:'images/snacks/litti.webp'},
-  {id:'n4',  name:'Cutlet',              emoji:'🍞', cat:'snacks',    price:6,  unit:'Per piece',          desc:'Bread slices coated in spiced batter, crispy deep fried till golden.',            img:'images/snacks/Cutlet.webp'},
-  {id:'n5',  name:'Samosa Chat',         emoji:'🧡', cat:'snacks',    price:25,  unit:'Per plate',          desc:'Sweet semolina halwa with saffron, cashews and generous ghee.',                   img:'images/snacks/samosa_chat.webp'},
-  {id:'n6',  name:'Chowmein',            emoji:'🍔', cat:'snacks',    price:50,  unit:'Per plate',          desc:'Spiced potato vada inside a soft pav bun with zesty green chutney.',              img:'images/snacks/Chowmein.webp'},
-  {id:'n7',  name:'Paneer Chowmein',     emoji:'🍔', cat:'snacks',    price:80,  unit:'Per plate',          desc:'Spiced potato vada inside a soft pav bun with zesty green chutney.',              img:'images/snacks/Paneer_Chowmein.webp'},
-  {id:'n8',  name:'Burger',              emoji:'🍔', cat:'snacks',    price:50,  unit:'Per piece',          desc:'Spiced potato vada inside a soft pav bun with zesty green chutney.',              img:'images/snacks/Burger.webp'},
-  {id:'n9',  name:'Paneer Burger',       emoji:'🍔', cat:'snacks',    price:80,  unit:'Per piece',          desc:'Spiced potato vada inside a soft pav bun with zesty green chutney.',              img:'images/snacks/Paneer_Burger.webp'},
-  
-  // Drinks
-
-  {id:'r1',  name:'Filter Coffee',       emoji:'☕', cat:'drinks',    price:15,  unit:'Per cup',            desc:'Traditional South Indian filter coffee served in davara-tumbler.',                img:'images/drinks/filter_coffee.webp'},
-  {id:'r2',  name:'Masala Chai',         emoji:'🍵', cat:'drinks',    price:15,  unit:'Per cup',            desc:'Spiced ginger tea brewed with cardamom, cinnamon and cloves.',                    img:'images/drinks/masala_chai.webp'},
-  {id:'r3',  name:'Fresh Lime Soda',     emoji:'🥛', cat:'drinks',    price:15,  unit:'Per glass',          desc:'Refreshing lime soda with a pinch of chaat masala.',                             img:'images/drinks/lemon_soda.webp'},
-  {id:'r4',  name:'Coca-Cola',           emoji:'🥤', cat:'drinks',    price:35,  unit:'Per can',            desc:'Ice-cold Coca-Cola can.',                                                        img:'images/drinks/cocacola.webp'},
-  {id:'r5',  name:'Sprite',              emoji:'🥤', cat:'drinks',    price:35,  unit:'Per can',            desc:'Chilled Sprite — crisp & refreshing.',                                          img:'images/drinks/sprites.webp'},
-  {id:'r6',  name:'Thums Up',            emoji:'🥤', cat:'drinks',    price:35,  unit:'Per can',            desc:'Bold & fizzy Thums Up can.',                                                     img:'images/drinks/ThumsUp.webp'},
+/* Coupon prefix pool — 20 friendly prefixes */
+var COUPON_PREFIXES = [
+  'ARYAN','SWEET','DOSA','IDLI','CHAI',
+  'MITHI','LUCKY','TASTY','YUMMY','FRESH',
+  'DHANU','SPICE','DELHI','BIHAR','GOLD',
+  'HAPPY','FEAST','TREAT','ENJOY','SAVOUR'
 ];
+
+/* Generate or retrieve session coupon */
+var sessionCoupon = null; // { code, discount }
+
+function getOrCreateCoupon() {
+  /* Try session storage first */
+  try {
+    var stored = sessionStorage.getItem('aryan_coupon');
+    if (stored) {
+      sessionCoupon = JSON.parse(stored);
+      return sessionCoupon;
+    }
+  } catch(e) {}
+
+  /* Create a fresh random coupon */
+  var prefix = COUPON_PREFIXES[Math.floor(Math.random() * COUPON_PREFIXES.length)];
+  var num    = Math.floor(Math.random() * 900 + 100); // 3-digit number
+  var code   = prefix + num;
+  var disc   = Math.floor(Math.random() * 10) + 1;   // ₹1 – ₹10
+
+  sessionCoupon = { code: code, discount: disc };
+
+  try { sessionStorage.setItem('aryan_coupon', JSON.stringify(sessionCoupon)); } catch(e) {}
+  return sessionCoupon;
+}
+
+/* State: has scratch been revealed in this session? */
+var scratchRevealed = false;
+try { scratchRevealed = sessionStorage.getItem('aryan_scratch_done') === '1'; } catch(e) {}
+
+/* Applied coupon in current cart session */
+var appliedCoupon = null; // { code, discount } or null
+
+/* ── OPEN / CLOSE COUPON MODAL ── */
+function openCouponModal() {
+  var coupon = getOrCreateCoupon();
+
+  /* Populate hidden scratch reveal content */
+  document.getElementById('scratchCode').textContent     = coupon.code;
+  document.getElementById('scratchDiscount').textContent = '🎉 ₹' + coupon.discount + ' OFF your order!';
+  document.getElementById('couponCopyCode').textContent  = coupon.code;
+  document.getElementById('savingsAmt').textContent      = '₹' + coupon.discount;
+
+  /* If already scratched this session, skip to revealed state */
+  if (scratchRevealed) {
+    document.getElementById('scratchWrap').classList.add('done');
+    document.getElementById('scratchOverlay').classList.add('revealed');
+    document.getElementById('couponSavingsBadge').style.display = 'inline-flex';
+    document.getElementById('couponCopyRow').style.display      = 'flex';
+    document.getElementById('couponUseBtn').style.display       = 'block';
+  } else {
+    /* Reset to un-scratched */
+    document.getElementById('scratchWrap').classList.remove('done');
+    document.getElementById('scratchOverlay').classList.remove('revealed');
+    document.getElementById('couponSavingsBadge').style.display = 'none';
+    document.getElementById('couponCopyRow').style.display      = 'none';
+    document.getElementById('couponUseBtn').style.display       = 'none';
+  }
+
+  document.getElementById('couponModal').classList.add('open');
+}
+
+function closeCouponModal() {
+  document.getElementById('couponModal').classList.remove('open');
+}
+
+/* ── SCRATCH REVEAL ── */
+function revealScratch() {
+  var overlay = document.getElementById('scratchOverlay');
+  if (overlay.classList.contains('revealed')) return; /* already done */
+
+  overlay.classList.add('revealed');
+  scratchRevealed = true;
+  try { sessionStorage.setItem('aryan_scratch_done','1'); } catch(e) {}
+
+  /* Show the goodies after a short delay */
+  setTimeout(function() {
+    document.getElementById('couponSavingsBadge').style.display = 'inline-flex';
+    document.getElementById('couponCopyRow').style.display      = 'flex';
+    document.getElementById('couponUseBtn').style.display       = 'block';
+  }, 520);
+}
+
+/* ── COPY COUPON CODE ── */
+function copyCouponCode() {
+  var code = sessionCoupon ? sessionCoupon.code : '';
+  if (!code) return;
+  try {
+    navigator.clipboard.writeText(code).then(function(){
+      toast('📋 Code ' + code + ' copied!');
+    }).catch(function(){ fallbackCopy(code); });
+  } catch(e) { fallbackCopy(code); }
+}
+function fallbackCopy(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text; ta.style.position='fixed'; ta.style.opacity='0';
+  document.body.appendChild(ta); ta.select();
+  try { document.execCommand('copy'); toast('📋 Code copied!'); } catch(e) { toast('Code: ' + text); }
+  document.body.removeChild(ta);
+}
+
+/* ── USE COUPON NOW — opens cart, pre-fills code ── */
+function useCouponNow() {
+  closeCouponModal();
+  var code = sessionCoupon ? sessionCoupon.code : '';
+  if (code) {
+    document.getElementById('couponCodeInput').value = code;
+    /* Auto-apply if cart has items */
+    if (cart.length > 0) {
+      applyCoupon();
+    }
+  }
+  /* Open cart panel */
+  var panel = document.getElementById('orderPanel');
+  if (!panel.classList.contains('open')) {
+    toggleCart();
+  } else {
+    /* Scroll to coupon section */
+    var cs = document.getElementById('couponSection');
+    if (cs) cs.scrollIntoView({ behavior:'smooth', block:'center' });
+  }
+  if (!cart.length) {
+    toast('🛒 Add items to your cart first, then use the coupon!');
+    go('menu');
+  }
+}
+
+/* ═══════════════════════════════════════════
+   APPLY / REMOVE COUPON IN CART
+═══════════════════════════════════════════ */
+function applyCoupon() {
+  var input    = document.getElementById('couponCodeInput');
+  var resultEl = document.getElementById('couponResult');
+  var code     = input.value.trim().toUpperCase();
+
+  if (!code) { toast('⚠️ Please enter a coupon code!'); return; }
+  if (!sessionCoupon) { toast('⚠️ No coupon available. Get one first!'); return; }
+
+  if (code === sessionCoupon.code) {
+    appliedCoupon = { code: sessionCoupon.code, discount: sessionCoupon.discount };
+    resultEl.className = 'coupon-result valid show';
+    resultEl.innerHTML =
+      '<strong>✅ Coupon Applied! You save ₹' + appliedCoupon.discount + ' 🎉</strong>' +
+      'Code <strong>' + appliedCoupon.code + '</strong> — ₹' + appliedCoupon.discount + ' OFF your subtotal.';
+
+    /* Swap Apply → Remove button */
+    var row = document.getElementById('couponInputRow');
+    row.innerHTML =
+      '<input type="text" id="couponCodeInput" value="' + appliedCoupon.code + '" readonly style="opacity:0.7;cursor:default;">' +
+      '<button class="coupon-remove-btn" onclick="removeCoupon()">✕ Remove</button>';
+
+    refreshCart();
+    toast('🎉 Coupon ₹' + appliedCoupon.discount + ' OFF applied!');
+  } else {
+    appliedCoupon = null;
+    resultEl.className = 'coupon-result invalid show';
+    resultEl.innerHTML =
+      '<strong>❌ Invalid Coupon Code</strong>' +
+      'Code "<strong>' + code + '</strong>" is not valid. Get your coupon using the <strong>Coupons 4U</strong> button above!';
+    refreshCart();
+  }
+}
+
+function removeCoupon() {
+  appliedCoupon = null;
+  /* Restore original input row */
+  var row = document.getElementById('couponInputRow');
+  row.innerHTML =
+    '<input type="text" id="couponCodeInput" placeholder="e.g. ARYAN7" maxlength="10">' +
+    '<button class="coupon-apply-btn" onclick="applyCoupon()">Apply</button>';
+
+  var resultEl = document.getElementById('couponResult');
+  resultEl.className = 'coupon-result';
+  resultEl.innerHTML = '';
+
+  refreshCart();
+  toast('🗑️ Coupon removed.');
+}
 
 /* ═══════════════════════════════════════════
    HAVERSINE
@@ -935,20 +1278,17 @@ function checkByPin() {
   }
 
   if (DELIVERY_PINS.indexOf(pin) !== -1) {
-    /* PIN is deliverable — also unblock the order button */
     locChecked = true;
     document.getElementById('placeOrderBtn').classList.remove('blocked');
     resultEl.className = 'pin-result deliverable show';
     resultEl.innerHTML =
       '<strong>✅ PIN ' + pin + ' — We deliver here! 🎉</strong>' +
       'Your area is within our delivery zone. You can place your order.';
-    /* Also update GPS result area to reflect PIN success */
     showLocResult('deliverable',
       '<strong>✅ Delivery confirmed via PIN ' + pin + '</strong>' +
       'Your area is within our 10 km delivery zone.'
     );
   } else {
-    /* PIN is outside range */
     locChecked = false;
     document.getElementById('placeOrderBtn').classList.add('blocked');
     resultEl.className = 'pin-result not-deliverable show';
@@ -969,6 +1309,80 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
+
+/* ═══════════════════════════════════════════
+   MENU DATA
+═══════════════════════════════════════════ */
+var MENU = [
+// Breakfast
+  {id:'d1',  name:'Chole Bhature',       emoji:'🥟', cat:'breakfast', price:50,  unit:'Per plate (2 pcs)',  desc:'Fluffy bhature with spiced chole. A hearty North-Indian favourite.',            img:'images/breakfast/Chole_Bhature.jpg'},
+  {id:'d2',  name:'Dosa',                emoji:'🍚', cat:'breakfast', price:50,  unit:'Per plate',          desc:'Classic thin crispy rice & lentil crepe with sambar & chutney.',                img:'images/breakfast/dosa.webp'},
+  {id:'d3',  name:'Paper Dosa',          emoji:'🥞', cat:'breakfast', price:50,  unit:'Per plate',          desc:'Extra-thin, extra-crispy version of the classic dosa.',                         img:'images/breakfast/Paper_dosa.webp'},
+  {id:'d4',  name:'Masala Dosa',         emoji:'🫔', cat:'breakfast', price:60,  unit:'Per plate',          desc:'Crispy golden dosa stuffed with spiced potato masala filling.',                  img:'images/breakfast/Masala_dosa.webp'},
+  {id:'d5',  name:'Paneer Masala Dosa',  emoji:'🧈', cat:'breakfast', price:80,  unit:'Per plate',          desc:'Dosa stuffed with rich paneer masala. A deluxe classic.',                       img:'images/breakfast/Paneer_Masala.webp'},
+  {id:'d6',  name:'Manchurian',          emoji:'🍪', cat:'breakfast', price:30,  unit:'Per bowl',           desc:'Crispy veggie balls tossed in tangy Manchurian sauce.',                         img:'images/breakfast/Manchurian.jpg'},
+  {id:'d7',  name:'Paneer Manchurian',   emoji:'🍩', cat:'breakfast', price:50,  unit:'Per bowl',           desc:'Soft paneer cubes in spicy Indo-Chinese Manchurian gravy.',                     img:'images/breakfast/Paneer_Manchurian.webp'},
+  {id:'d8',  name:'Paneer Chilli',       emoji:'🍕', cat:'breakfast', price:80,  unit:'Per bowl',           desc:'Crispy paneer tossed with bell peppers in a chilli sauce.',                     img:'images/breakfast/Paneer_Chilli.jpg'},
+  {id:'d9',  name:'Pizza',               emoji:'🍕', cat:'breakfast', price:50,  unit:'Per slice',          desc:'Topped with onion, tomato, green chilli & coriander.',                          img:'images/breakfast/pizza.jpg'},
+  {id:'d10', name:'Paneer Pizza',        emoji:'🍕', cat:'breakfast', price:80,  unit:'Per slice',          desc:'Loaded with fresh paneer, veggies & mozzarella.',                               img:'images/breakfast/paneer_pizza.webp'},
+// Sweets
+  {id:'s1',  name:'Kaju Barfi',          emoji:'🍮', cat:'sweets',    price:1200, unit:'Per kg',           desc:'Premium cashew fudge with silver leaf. Melt-in-mouth classic.',                  img:'images/sweets/kaju-katli.png'},
+  {id:'s2',  name:'Ghee Laddu',          emoji:'🟡', cat:'sweets',    price:500,  unit:'Per kg', desc:'Traditional besan laddus made with pure desi ghee and cardamom.',                img:'images/sweets/ghee_laddu.jpeg'},
+  {id:'s3',  name:'Gulab Jamun',         emoji:'🫙', cat:'sweets',    price:300,  unit:'Per kg',  desc:'Soft khoya balls soaked in rose-cardamom sugar syrup. Served warm.',             img:'images/sweets/Gulab_Jamun.jpg'},
+  {id:'s4',  name:'Motichoor Laddu',     emoji:'🟠', cat:'sweets',    price:200,  unit:'Per kg',           desc:'Tiny boondi laddus bound with saffron syrup and dry fruits.',                    img:'images/sweets/motichoor_ladoo.jpg'},
+  {id:'s5',  name:'Sukha Rasgulla',      emoji:'⚪', cat:'sweets',    price:300,  unit:'Per kg',  desc:'Spongy chhena balls soaked in light sugar syrup. Bengali special.',               img:'images/sweets/sukha_rasgulla.jpeg'},
+  {id:'s6',  name:'Kalakand',            emoji:'🍮', cat:'sweets',    price:500, unit:'Per kg',           desc:'Premium cashew fudge with silver leaf. Melt-in-mouth classic.',                  img:'images/sweets/kalakand.jpeg'},
+  {id:'s7',  name:'Cream Chamcham',      emoji:'🍮', cat:'sweets',    price:400, unit:'Per kg',           desc:'Premium cashew fudge with silver leaf. Melt-in-mouth classic.',                  img:'images/sweets/creem_chamcham.png'},
+  {id:'s8',  name:'Cream Chop',          emoji:'🍮', cat:'sweets',    price:50, unit:'Per piece',           desc:'Premium cashew fudge with silver leaf. Melt-in-mouth classic.',                  img:'images/sweets/creem_chop.jpg'},
+  {id:'s9',  name:'Sponge',              emoji:'🍮', cat:'sweets',    price:300, unit:'Per kg',           desc:'Premium cashew fudge with silver leaf. Melt-in-mouth classic.',                  img:'images/sweets/spange.webp'},
+  {id:'s10', name:'Chamcham',            emoji:'🍮', cat:'sweets',    price:400, unit:'Per kg',           desc:'Premium cashew fudge with silver leaf. Melt-in-mouth classic.',                  img:'images/sweets/chamcham.jpeg'},
+  {id:'s11', name:'Peda',                emoji:'🍮', cat:'sweets',    price:500, unit:'Per kg',           desc:'Premium cashew fudge with silver leaf. Melt-in-mouth classic.',                  img:'images/sweets/peda.jpeg'},
+  {id:'s12', name:'Khoya Barfi',         emoji:'🍮', cat:'sweets',    price:500, unit:'Per kg',           desc:'Premium cashew fudge with silver leaf. Melt-in-mouth classic.',                  img:'images/sweets/khoya_slice.jpeg'},
+  {id:'s13', name:'Milk Cake',           emoji:'🍮', cat:'sweets',    price:500, unit:'Per kg',           desc:'Premium cashew fudge with silver leaf. Melt-in-mouth classic.',                  img:'images/sweets/milk.jpeg'},
+  {id:'s14', name:'Chocolate Barfi',     emoji:'🍮', cat:'sweets',    price:500, unit:'Per kg',           desc:'Premium cashew fudge with silver leaf. Melt-in-mouth classic.',                  img:'images/sweets/Chocolate_barfi.webp'},
+  {id:'s15', name:'Khoya Roll',          emoji:'🍮', cat:'sweets',    price:500, unit:'Per kg',           desc:'Premium cashew fudge with silver leaf. Melt-in-mouth classic.',                  img:'images/sweets/khoya_roll.jpg'},
+  {id:'s16', name:'Khoya Slice',         emoji:'🍮', cat:'sweets',    price:600, unit:'Per kg',           desc:'Premium cashew fudge with silver leaf. Melt-in-mouth classic.',                  img:'images/sweets/khoya_slice.jpeg'},
+  {id:'s17', name:'Coconut Dry Fruit Laddu', emoji:'🍮', cat:'sweets', price:800, unit:'Per kg',          desc:'Premium cashew fudge with silver leaf. Melt-in-mouth classic.',                  img:'images/sweets/coconut_dry_fruit.jpg'},
+  {id:'s18', name:'Dry Fruit Laddu',     emoji:'🍮', cat:'sweets',    price:1200, unit:'Per kg',          desc:'Premium cashew fudge with silver leaf. Melt-in-mouth classic.',                  img:'images/sweets/Dry_fruits.jpg'},
+  {id:'s19', name:'Kaju Pista Roll',     emoji:'🍮', cat:'sweets',    price:2000, unit:'Per kg',          desc:'Premium cashew fudge with silver leaf. Melt-in-mouth classic.',                  img:'images/sweets/kaju_pista_roll.jpg'},
+  {id:'s20', name:'Raskadam',            emoji:'🍮', cat:'sweets',    price:500, unit:'Per kg',           desc:'Premium cashew fudge with silver leaf. Melt-in-mouth classic.',                  img:'images/sweets/raskadam.jpeg'},
+  {id:'s21', name:'Kaju Pan',            emoji:'🍮', cat:'sweets',    price:1200, unit:'Per kg',          desc:'Premium cashew fudge with silver leaf. Melt-in-mouth classic.',                  img:'images/sweets/kaju_pan.jpg'},
+  {id:'s22', name:'Gee Besan Laddu',     emoji:'🍮', cat:'sweets',    price:500, unit:'Per kg',           desc:'Premium cashew fudge with silver leaf. Melt-in-mouth classic.',                  img:'images/sweets/ghee_besan_ladoo.jpeg'},
+  {id:'s23', name:'Gond Laddu',          emoji:'🍮', cat:'sweets',    price:6, unit:'Per piece',          desc:'Premium cashew fudge with silver leaf. Melt-in-mouth classic.',                  img:'images/sweets/Gond_laddu.jpg'},
+  {id:'s24', name:'Pinni Laddu',         emoji:'🍮', cat:'sweets',    price:6, unit:'Per piece',          desc:'Premium cashew fudge with silver leaf. Melt-in-mouth classic.',                  img:'images/sweets/pinni-laddo.png'},
+  {id:'s25', name:'Moti Pak',            emoji:'🍮', cat:'sweets',    price:600, unit:'Per kg',           desc:'Premium cashew fudge with silver leaf. Melt-in-mouth classic.',                  img:'images/sweets/moti_pak.jpg'},
+// Cake
+  {id:'c1',  name:'Chocolate Cake',      emoji:'🎂', cat:'cake',      price:300, unit:'Per pound',        desc:'Rich dark chocolate layer cake with ganache frosting.',                          img:'images/cake/Chocolate_Cake.webp'},
+  {id:'c2',  name:'Vanilla Cream Cake',  emoji:'🍰', cat:'cake',      price:320, unit:'Per pound',        desc:'Light vanilla sponge with fresh cream and fruit topping.',                       img:'images/cake/Vanilla_Cake.jpeg'},
+  {id:'c3',  name:'Pineapple Cake',      emoji:'🍍', cat:'cake',      price:350, unit:'Per pound',        desc:'Classic pineapple pastry with fresh cream and pineapple chunks.',                 img:'images/cake/Pineapple_Cake.webp'},
+  {id:'c4',  name:'Black Forest Cake',   emoji:'🍒', cat:'cake',      price:350, unit:'Per pound',        desc:'German chocolate cake with cherries, cream and chocolate shavings.',              img:'images/cake/Black_Forest_Cake.webp'},
+  {id:'c5',  name:'Butterscotch Cake',   emoji:'🧁', cat:'cake',      price:420, unit:'Per pound',        desc:"Smooth butterscotch cream cake with crunchy praline. Kids' favourite.",           img:'images/cake/Butterscotch_Cake.webp'},
+  {id:'c6',  name:'White Forest Cake',   emoji:'🧁', cat:'cake',      price:400, unit:'Per pound',        desc:"Smooth butterscotch cream cake with crunchy praline. Kids' favourite.",           img:'images/cake/White_Forest_cacke.webp'},
+  {id:'c7',  name:'Strawberry Cake',     emoji:'🍒', cat:'cake',      price:430, unit:'Per pound',        desc:"Smooth butterscotch cream cake with crunchy praline. Kids' favourite.",           img:'images/cake/Strawberry_Cake.webp'},
+  {id:'c8',  name:'Choco Chips Cake',    emoji:'🍒', cat:'cake',      price:400, unit:'Per pound',        desc:'Moist red velvet cake with cream cheese frosting.',                              img:'images/cake/Choco_Chips_cake.webp'},
+  {id:'c9',  name:'Fruits Cake',         emoji:'🍒', cat:'cake',      price:450, unit:'Per pound',        desc:'Moist red velvet cake with cream cheese frosting.',                              img:'images/cake/Fruit_cake.jpg'},
+  {id:'c10', name:'Truffle Cake',        emoji:'🍒', cat:'cake',      price:500, unit:'Per pound',        desc:'Moist red velvet cake with cream cheese frosting.',                              img:'images/cake/Truffle_cake.webp'},
+  {id:'c11', name:'Khoya Cake',          emoji:'🍒', cat:'cake',      price:700, unit:'Per pound',        desc:'Moist red velvet cake with cream cheese frosting.',                              img:'images/cake/Khoya_cake.webp'},
+  {id:'c12', name:'Pastry Cake',         emoji:'🍒', cat:'cake',      price:50,  unit:'Per piece',        desc:'Moist red velvet cake with cream cheese frosting.',                              img:'images/cake/Pastry.webp'},
+  {id:'c13', name:'Mofinse Cake',        emoji:'🍒', cat:'cake',      price:50,  unit:'Per pound',        desc:'Moist red velvet cake with cream cheese frosting.',                              img:'images/cake/Mopinse_cake.webp'},
+// Snacks
+  {id:'n1',  name:'Samosa',              emoji:'🔺', cat:'snacks',    price:8,  unit:'Per piece',          desc:'Crispy pastry filled with spiced potatoes and peas. With green chutney.',        img:'images/snacks/samosa.jpeg'},
+  {id:'n2',  name:'Kachori',             emoji:'🥙', cat:'snacks',    price:8,  unit:'Per piece',          desc:'Crispy fried pastry stuffed with spiced lentil filling.',                        img:'images/snacks/kachori.webp'},
+  {id:'n3',  name:'Litti',               emoji:'🌶', cat:'snacks',    price:8,  unit:'Per piece',          desc:'Green chillies dipped in spiced gram flour batter, deep fried golden.',          img:'images/snacks/litti.webp'},
+  {id:'n4',  name:'Cutlet',              emoji:'🍞', cat:'snacks',    price:6,  unit:'Per piece',          desc:'Bread slices coated in spiced batter, crispy deep fried till golden.',            img:'images/snacks/Cutlet.webp'},
+  {id:'n5',  name:'Samosa Chat',         emoji:'🧡', cat:'snacks',    price:25, unit:'Per plate',          desc:'Sweet semolina halwa with saffron, cashews and generous ghee.',                   img:'images/snacks/samosa_chat.webp'},
+  {id:'n6',  name:'Chowmein',            emoji:'🍔', cat:'snacks',    price:50, unit:'Per plate',          desc:'Spiced potato vada inside a soft pav bun with zesty green chutney.',              img:'images/snacks/Chowmein.webp'},
+  {id:'n7',  name:'Paneer Chowmein',     emoji:'🍔', cat:'snacks',    price:80, unit:'Per plate',          desc:'Spiced potato vada inside a soft pav bun with zesty green chutney.',              img:'images/snacks/Paneer_Chowmein.webp'},
+  {id:'n8',  name:'Burger',              emoji:'🍔', cat:'snacks',    price:50, unit:'Per piece',          desc:'Spiced potato vada inside a soft pav bun with zesty green chutney.',              img:'images/snacks/Burger.webp'},
+  {id:'n9',  name:'Paneer Burger',       emoji:'🍔', cat:'snacks',    price:80, unit:'Per piece',          desc:'Spiced potato vada inside a soft pav bun with zesty green chutney.',              img:'images/snacks/Paneer_Burger.webp'},
+// Drinks
+  {id:'r1',  name:'Filter Coffee',       emoji:'☕', cat:'drinks',    price:15, unit:'Per cup',            desc:'Traditional South Indian filter coffee served in davara-tumbler.',                img:'images/drinks/filter_coffee.webp'},
+  {id:'r2',  name:'Masala Chai',         emoji:'🍵', cat:'drinks',    price:15, unit:'Per cup',            desc:'Spiced ginger tea brewed with cardamom, cinnamon and cloves.',                    img:'images/drinks/masala_chai.webp'},
+  {id:'r3',  name:'Fresh Lime Soda',     emoji:'🥛', cat:'drinks',    price:15, unit:'Per glass',          desc:'Refreshing lime soda with a pinch of chaat masala.',                             img:'images/drinks/lemon_soda.webp'},
+  {id:'r4',  name:'Coca-Cola',           emoji:'🥤', cat:'drinks',    price:35, unit:'Per can',            desc:'Ice-cold Coca-Cola can.',                                                        img:'images/drinks/cocacola.webp'},
+  {id:'r5',  name:'Sprite',              emoji:'🥤', cat:'drinks',    price:35, unit:'Per can',            desc:'Chilled Sprite — crisp & refreshing.',                                          img:'images/drinks/sprites.webp'},
+  {id:'r6',  name:'Thums Up',            emoji:'🥤', cat:'drinks',    price:35, unit:'Per can',            desc:'Bold & fizzy Thums Up can.',                                                     img:'images/drinks/ThumsUp.webp'},
+];
 
 /* ═══════════════════════════════════════════
    RENDER MENU
@@ -1033,6 +1447,8 @@ function addToCart(id) {
 function changeQty(idx, d) {
   cart[idx].qty += d;
   if (cart[idx].qty <= 0) cart.splice(idx, 1);
+  /* If cart goes empty, clear applied coupon */
+  if (!cart.length && appliedCoupon) { appliedCoupon = null; }
   refreshCart();
 }
 
@@ -1045,8 +1461,9 @@ function getDeliveryInfo(subtotal) {
 function refreshCart() {
   var subtotal = 0, count = 0;
   cart.forEach(function(c){ subtotal += c.price * c.qty; count += c.qty; });
-  var delivery = getDeliveryInfo(subtotal);
-  var grandTotal = subtotal + delivery.charge;
+  var delivery    = getDeliveryInfo(subtotal);
+  var couponDisc  = (appliedCoupon && cart.length > 0) ? Math.min(appliedCoupon.discount, subtotal) : 0;
+  var grandTotal  = Math.max(0, subtotal - couponDisc + delivery.charge);
 
   document.getElementById('cartBadge').textContent = count;
 
@@ -1072,31 +1489,43 @@ function refreshCart() {
   var noteEl     = document.getElementById('deliveryNote');
   var noteTextEl = document.getElementById('deliveryNoteText');
   var locWrap    = document.getElementById('locCheckWrap');
+  var couponSec  = document.getElementById('couponSection');
 
   if (!cart.length) {
     summaryEl.innerHTML = '';
-    noteEl.style.display = 'none';
-    locWrap.style.display = 'none';
-    /* Clear GPS result */
+    noteEl.style.display    = 'none';
+    locWrap.style.display   = 'none';
+    couponSec.style.display = 'none';
     var lr = document.getElementById('locResult');
     if (lr) { lr.className = 'loc-result'; lr.innerHTML = ''; }
-    /* Clear PIN result */
     var pr = document.getElementById('pinResult');
     if (pr) { pr.className = 'pin-result'; pr.innerHTML = ''; }
     var pi = document.getElementById('manualPin');
     if (pi) pi.value = '';
   } else {
+    /* Delivery row */
     var deliveryRow = delivery.isFree
       ? '<div class="op-row"><span class="lbl">🚚 Delivery</span><span class="val delivery-free">FREE ✓</span></div>'
       : '<div class="op-row"><span class="lbl">🚚 Delivery</span><span class="val delivery-charge">₹' + DELIVERY_CHARGE + '</span></div>';
 
+    /* Coupon discount row */
+    var couponRow = '';
+    if (couponDisc > 0) {
+      couponRow = '<div class="op-row coupon-discount-row">' +
+        '<span class="lbl">🎟️ Coupon (' + appliedCoupon.code + ')</span>' +
+        '<span class="val" style="color:#81c784;font-weight:700;">−₹' + couponDisc + '</span>' +
+        '</div>';
+    }
+
     summaryEl.innerHTML =
       '<div class="op-row"><span class="lbl">Subtotal</span><span class="val">₹' + subtotal + '</span></div>' +
+      couponRow +
       deliveryRow +
       '<div class="op-total"><span>Total</span><span>₹' + grandTotal + '</span></div>';
 
-    noteEl.style.display = 'flex';
-    locWrap.style.display = 'block';
+    noteEl.style.display    = 'flex';
+    couponSec.style.display = 'block';
+    locWrap.style.display   = 'block';
 
     if (delivery.isFree) {
       noteTextEl.innerHTML = '🎉 You\'ve unlocked <strong style="color:var(--green)">free delivery!</strong>';
@@ -1133,12 +1562,19 @@ function placeOrder() {
 
   var subtotal = 0;
   cart.forEach(function(c){ subtotal += c.price * c.qty; });
-  var delivery   = getDeliveryInfo(subtotal);
-  var grandTotal = subtotal + delivery.charge;
+  var couponDisc  = (appliedCoupon) ? Math.min(appliedCoupon.discount, subtotal) : 0;
+  var delivery    = getDeliveryInfo(subtotal);
+  var grandTotal  = Math.max(0, subtotal - couponDisc + delivery.charge);
+
+  var lastOrderId = parseInt(localStorage.getItem('aryansweetsOrderId') || '0', 10);
+  var orderId = (lastOrderId >= 999) ? 1 : lastOrderId + 1;
+  localStorage.setItem('aryansweetsOrderId', orderId);
+  var orderIdStr = '#' + String(orderId).padStart(3, '0');
 
   var lines = [
     '🍽️ *NEW ORDER — श्री आर्यन स्वीट्स*',
     '━━━━━━━━━━━━━━━━━━━━',
+    '🔖 *Order ID:* ' + orderIdStr,
     '👤 *Name:* ' + name,
     '📞 *Phone:* ' + phone
   ];
@@ -1149,6 +1585,9 @@ function placeOrder() {
   });
   lines.push('━━━━━━━━━━━━━━━━━━━━');
   lines.push('🛒 *Subtotal: ₹' + subtotal + '*');
+  if (couponDisc > 0) {
+    lines.push('🎟️ *Coupon (' + appliedCoupon.code + '): −₹' + couponDisc + '*');
+  }
   lines.push(delivery.isFree ? '🚚 *Delivery: FREE* 🎉' : '🚚 *Delivery: ₹' + DELIVERY_CHARGE + '*');
   lines.push('💰 *Grand Total: ₹' + grandTotal + '*');
   lines.push('✅ Please confirm & prepare!');
@@ -1156,6 +1595,7 @@ function placeOrder() {
   window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(lines.join('\n')), '_blank');
 
   cart = [];
+  appliedCoupon = null;
   locChecked = false;
   refreshCart();
   toggleCart();
